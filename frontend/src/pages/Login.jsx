@@ -41,7 +41,8 @@ const Login = () => {
         res.data.user,
       );
       toast.success(res.data.message);
-      navigate("/");
+      const role = String(res.data.user.role || "").toUpperCase();
+      navigate(role === "ADMIN" ? "/admin" : "/");
     } catch (err) {
       toast.error(err.response?.data?.message || "Login failed.");
     } finally {

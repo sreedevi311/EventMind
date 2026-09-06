@@ -71,7 +71,7 @@ function App() {
 
                         element={
 
-                            <ProtectedRoute>
+                            <ProtectedRoute requiredRole="ADMIN">
 
                                 <AdminLayout />
 
