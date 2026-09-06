@@ -7,7 +7,16 @@ import {
 const Sidebar = () => {
 
     const menu = [
-
+        {
+            name: "Event Intelligence Engine",
+            icon: <FaRobot />,
+            path: "/event-intelligence"
+        },
+        {
+            name: "Agent Orchestrator",
+            icon: <FaRobot />,
+            path: "/agent-orchestrator"
+        },
         {
             name: "Registration Agent",
             icon: <FaRobot />,
@@ -33,7 +42,8 @@ const Sidebar = () => {
             name: "Incident Agent",
             icon: <FaRobot />,
             path: "/incident-agent"
-        }
+        },
+        
     ];
 
     return (

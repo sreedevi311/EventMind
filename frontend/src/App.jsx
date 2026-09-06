@@ -17,24 +17,24 @@ import SpeakerAgentPage from "./pages/SpeakerAgentPage";
 import SponsorshipAgentPage from "./pages/SponsorshipAgentPage";
 import IncidentAgentPage from "./pages/IncidentAgentPage";
 import IncidentAdminPage from "./pages/IncidentAdminPage";
+
+import EventIntelligence from "./pages/EventIntelligence";
+import AgentOrchestrator from "./pages/AgentOrchestrator";
+
 import DashboardLayout from "./layouts/DashboardLayout";
 import AdminLayout from "./layouts/AdminLayout";
 import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
-
     return (
-
         <AuthProvider>
-
             <BrowserRouter>
 
-                <Toaster
-                    position="top-right"
-                />
+                <Toaster position="top-right" />
 
                 <Routes>
 
+                    {/* Protected User Routes */}
                     <Route
                         path="/"
                         element={
@@ -44,12 +44,41 @@ function App() {
                         }
                     >
                         <Route index element={<AIRegistration />} />
-                        <Route path="venue-agent" element={<VenueAgentPage />} />
-                        <Route path="speaker-agent" element={<SpeakerAgentPage />} />
-                        <Route path="sponsorship-agent" element={<SponsorshipAgentPage />} />
-                        <Route path="incident-agent" element={<IncidentAgentPage />} />
+
+                        <Route
+                            path="venue-agent"
+                            element={<VenueAgentPage />}
+                        />
+
+                        <Route
+                            path="speaker-agent"
+                            element={<SpeakerAgentPage />}
+                        />
+
+                        <Route
+                            path="sponsorship-agent"
+                            element={<SponsorshipAgentPage />}
+                        />
+
+                        <Route
+                            path="incident-agent"
+                            element={<IncidentAgentPage />}
+                        />
+
+                        {/* NEW */}
+                        <Route
+                            path="event-intelligence"
+                            element={<EventIntelligence />}
+                        />
+
+                        {/* NEW */}
+                        <Route
+                            path="agent-orchestrator"
+                            element={<AgentOrchestrator />}
+                        />
                     </Route>
 
+                    {/* Authentication */}
                     <Route
                         path="/login"
                         element={<Login />}
@@ -65,53 +94,36 @@ function App() {
                         element={<VerifySignupOTP />}
                     />
 
+                    {/* Admin Routes */}
                     <Route
-
                         path="/admin"
-
                         element={
-
                             <ProtectedRoute requiredRole="ADMIN">
-
                                 <AdminLayout />
-
                             </ProtectedRoute>
-
                         }
-
                     >
-
                         <Route
-
                             index
-
-                            element={<Dashboard/>}
-
+                            element={<Dashboard />}
                         />
 
                         <Route
-
                             path="checkin"
-
-                            element={<CheckIn/>}
-
+                            element={<CheckIn />}
                         />
 
                         <Route
                             path="incidents"
                             element={<IncidentAdminPage />}
                         />
-
                     </Route>
 
                 </Routes>
 
             </BrowserRouter>
-
         </AuthProvider>
-
     );
-
 }
 
 export default App;
