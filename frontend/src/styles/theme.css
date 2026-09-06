@@ -1,0 +1,175 @@
+/* ===========================================================
+   EVENTMIND DESIGN SYSTEM
+=========================================================== */
+
+:root{
+
+    /* ================= COLORS ================= */
+
+    --primary:#4F8CFF;
+    --primary-dark:#3B7BFF;
+    --secondary:#6EA8FE;
+    --accent:#A5D8FF;
+
+    --background:#F5F9FF;
+    --surface:#FFFFFF;
+
+    --heading:#1E293B;
+    --text:#475569;
+    --muted:#94A3B8;
+
+    --success:#22C55E;
+    --warning:#F59E0B;
+    --danger:#EF4444;
+
+    /* ================= GRADIENT ================= */
+
+    --gradient-primary:
+    linear-gradient(
+        135deg,
+        #4F8CFF 0%,
+        #6EA8FE 55%,
+        #A5D8FF 100%
+    );
+
+    /* ================= SHADOWS ================= */
+
+    --shadow-card:
+        0 10px 40px rgba(79,140,255,.12);
+
+    --shadow-button:
+        0 8px 25px rgba(79,140,255,.25);
+
+    /* ================= BORDER ================= */
+
+    --border:#E5E7EB;
+
+}
+
+@layer components{
+
+.page{
+
+    @apply min-h-screen;
+
+    background:var(--background);
+
+}
+
+.card{
+
+    @apply rounded-3xl;
+
+    background:var(--surface);
+
+    box-shadow:var(--shadow-card);
+
+}
+
+.input{
+
+    @apply
+    w-full
+    rounded-2xl
+    px-4
+    py-3
+    border
+    outline-none
+    transition-all
+    duration-300;
+
+    border-color:var(--border);
+
+}
+
+.input:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:
+    0 0 0 4px rgba(79,140,255,.12);
+
+}
+
+.btn-primary{
+
+    @apply
+    px-6
+    py-3
+    rounded-2xl
+    text-white
+    font-semibold
+    transition-all
+    duration-300;
+
+    background:var(--gradient-primary);
+
+    box-shadow:var(--shadow-button);
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.heading{
+
+    font-family:"Poppins",sans-serif;
+
+    color:var(--heading);
+
+}
+
+.subtitle{
+
+    color:var(--text);
+
+}
+
+.small-text{
+
+    color:var(--muted);
+
+}
+
+}
+
+@layer utilities{
+
+.gradient-primary{
+
+    background:var(--gradient-primary);
+
+}
+
+.text-primary{
+
+    color:var(--primary);
+
+}
+
+.bg-surface{
+
+    background:var(--surface);
+
+}
+
+/* Suppress default HTML5-QRCode controls & raw video borders */
+#qr-reader {
+  border: none !important;
+}
+
+#qr-reader video {
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#qr-reader__dashboard,
+#qr-reader__status_span {
+  display: none !important;
+}
+
+}
